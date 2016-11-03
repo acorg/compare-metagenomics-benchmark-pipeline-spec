@@ -11,7 +11,6 @@
 task=$1
 fastq=../$task.fastq.gz
 log=../$task.log
-adapter=`echo $task | cut -f7 -d_`
 out=$task-trimmed.fastq.gz
 
 echo "01-trim on task $task started at `date`" >> $log
@@ -20,7 +19,6 @@ echo "  adapter is $adapter" >> $log
 
 srun -n 1 AdapterRemoval \
   --basename $task \
-  --adapter1 $adapter \
   --file1 $fastq \
   --output1 $out \
   --gzip \
