@@ -15,7 +15,6 @@ out=$task-trimmed.fastq.gz
 
 echo "01-trim on task $task started at `date`" >> $log
 echo "  fastq is $fastq" >> $log
-echo "  adapter is $adapter" >> $log
 
 srun -n 1 AdapterRemoval \
   --basename $task \
